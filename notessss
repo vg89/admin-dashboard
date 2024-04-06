@@ -1,0 +1,14 @@
+->here in app.jsx we use the conceppt of code splitting."Code splitting" refers to a technique used in software development, particularly in web development, to improve performance by breaking down a large codebase into smaller, more manageable parts that can be loaded selectively.For this we use lazy and suspense
+
+->//to use the stylings we made in the mixin file, we write @use "mixin" in the app.scss file(a file where we have all the stylings)
+@use "mixin"; iske liye we have to write like this:
+
+yaha we imported the mixin as module using use keyword, so we use it here using mixin.property(mixin.grid)
+.admin-container{
+    @include mixin.grid(1fr 4fr,2rem)
+}
+
+->if we use @import "mixin", then we can dirctly write:
+@include grid(1fr 4fr,2rem)
+
+->in SCSS, use keyword hum tab use karte hai when there are chances that contents of two files might conflict, but here we have only 1 mixin file so we use import

@@ -1,0 +1,51 @@
+
+//Mixins are a way to group CSS declarations and reuse them throughout your stylesheets.
+
+//By using this mixin, you can apply consistent styles to headings throughout your stylesheet by simply calling @include heading;. You can also customize the styles by passing different values to the parameters, for example: @include heading(5px, 400, capitalize);. This flexibility makes mixins powerful tools for maintaining consistency and reducing code duplication in Sass stylesheets.
+
+//yaha jese humne mixin ke anadr ek function banaya hai uske andar variables ko humne default values assign kardia hai, and inside this function humne css declarations use kia that which are assigned the variables(properties) taken upar
+
+@mixin heading($spacing: 3px, $weight: 300, $case: uppercase) {
+    letter-spacing: $spacing;
+    font-weight: $weight;
+    text-transform: $case;
+  }
+  
+  @mixin flex(
+    $dir: row,
+    $justifyContent: center,
+    $alignItems: center,
+    $gap: 1rem
+  ) {
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $justifyContent;
+    align-items: $alignItems;
+    gap: $gap;
+  }
+  @mixin grid($col: 1fr, $gap: 1rem, $row: unset) {
+    display: grid;
+    grid-template-columns: $col;
+    grid-template-rows: $row;
+    gap: $gap;
+  }
+  @mixin inputStyle($w:100%, $p:1rem, $bgColor:inherit, $border:none){
+    padding: $p;
+    border: $border;
+    background-color: $bgColor;
+    width: $w;
+    outline: none;
+  }
+//kisi specific element ka position absolute karke agar center karna hai then we use posCennter function
+//here we need not assign any properties inside the function, we directly assign the required css declartions with the respective values
+@mixin posCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  @mixin square($s: 1rem) {
+    height: $s;
+    width: $s;
+  }
